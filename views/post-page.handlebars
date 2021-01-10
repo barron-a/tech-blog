@@ -1,13 +1,6 @@
 <div class="container">
     {{#each posts as |post|}}
-    <div class="card mt-3">
-        <h5 class="card-header bg-secondary text-light">
-            <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
-        </h5>
-        <div class="card-body bg-light">
-            <p class="card-text">{{post.post_body}}</p>
-        </div>
-    </div>
+    {{> post-data post}}
     {{/each}}
 </div>
 
@@ -19,19 +12,7 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {{/if}}
-
-<div class="comments">
-    {{#each post.comments}}
-    <section class="comment">
-        <div class="meta">
-            {{user.username}} on {{created_at}}
-        </div>
-        <div class="text">
-            {{comment_text}}
-        </div>
-    </section>
-    {{/each}}
-</div>
+{{> comments post.comments}}
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 {{/if}}
