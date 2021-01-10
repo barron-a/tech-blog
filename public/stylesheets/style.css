@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: #7fb62c;
+    color: white;
+}
+
+h1 {
+    margin: 0;
+    background-color: #53830d;
+}
+
+.border {
+    margin: 0;
+    padding: 0;
+}
