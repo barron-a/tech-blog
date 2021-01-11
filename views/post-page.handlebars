@@ -1,0 +1,16 @@
+<div class="container">
+    {{> post-data post}}
+</div>
+
+{{#if loggedIn}}
+<form class="comment-form">
+    <div class="mb-3">
+        <textarea name="comment-body"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{/if}}
+{{> comments post.comments}}
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
