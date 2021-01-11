@@ -1,8 +1,11 @@
 <div class="card mt-3">
     <h5 class="card-header bg-secondary text-light">
-        <a href="{{post_url}}" target="_blank">{{title}}</a>
+        <a id="post-link" href="/post/{{id}}">{{title}}</a>
     </h5>
     <div class="card-body bg-light">
         <p class="card-text">{{post_body}}</p>
+    </div>
+    <div class="card-footer">
+        <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
     </div>
 </div>

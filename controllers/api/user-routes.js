@@ -68,6 +68,7 @@ router.post('/', (req, res) => {
 
 // POST /api/users/login (POST method carries request parameter in req.body - more secure than passing in URL)
 router.post('/login', (req, res) => {
+    console.log('test');
     User.findOne({
         where: {
             email: req.body.email
@@ -88,11 +89,11 @@ router.post('/login', (req, res) => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
-
+            
             res.json(dbUserData);
         });
 
-        res.json({ user: dbUserData, message: 'You are now logged in!' });
+        //res.json({ user: dbUserData, message: 'You are now logged in!' });
 
         //res.json({ user: dbUserData })
     });
