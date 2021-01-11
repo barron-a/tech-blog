@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const authRequired = require('../../utils/auth');
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -92,10 +93,6 @@ router.post('/login', (req, res) => {
             
             res.json(dbUserData);
         });
-
-        //res.json({ user: dbUserData, message: 'You are now logged in!' });
-
-        //res.json({ user: dbUserData })
     });
 });
 
@@ -111,7 +108,7 @@ router.post('/logout', (req, res) => {
 });
 
 // PUT /api/users/1
-router.put('/:id', (req, res) => {
+router.put('/:id', authRequired, (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -132,7 +129,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE /api/users/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authRequired, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
