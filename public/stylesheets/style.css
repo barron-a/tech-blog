@@ -31,3 +31,7 @@ h1 {
 .edit-link {
     text-decoration: none;
 }
+
+.comment-header {
+    font-weight: 700;
+}
