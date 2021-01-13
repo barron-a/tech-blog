@@ -1,28 +1,32 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-    </div>
-    <div>
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
-  </form>
+    <h2>
+        Edit Post
+    </h2>
+    <form class="edit-post-form">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Title</span>
+            <input name="post-title" type="text" class="form-control" value="{{post.title}}" />
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Body</span>
+            <textarea class="form-control" name="post-body" id="post-body">{{post.post_body}}</textarea>
+        </div>
+        <button type="submit" class="save-post btn btn-primary my-2">Save Post</button>
+        <button type="button" class="delete-post-btn btn btn-danger my-2">Delete Post</button>
+    </form>
 </article>
 
 <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
+    <h2 class="mt-5">
+        Add Comment
+    </h2>
+    <div class="input-group">
+        <span class="input-group-text">Comment</span>
+        <textarea class="form-control" name="comment-body"></textarea>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary mt-2">Add Comment</button>
+    </div>
 </form>
 {{> comments post.comments}}
 
